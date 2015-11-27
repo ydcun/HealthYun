@@ -1,4 +1,4 @@
-package com.ydcun.service;
+package com.ydcun.mysql.service;
 
 import java.util.List;
 

@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.WebApplicationContext;
@@ -16,17 +17,21 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.google.gson.Gson;
 import com.ydcun.entity.Users;
-import com.ydcun.service.IUserManage;
+import com.ydcun.mongodb.service.IUsersMgService;
+import com.ydcun.mysql.service.IUserManage;
 
 @Controller
 @RequestMapping("/loginAction")
 public class UserController {
 	@Resource
 	private IUserManage userManageImp;
+	@Autowired
+	private IUsersMgService usersMgService;
 
 	@RequestMapping("/login")
 	public String addUser(Users user,HttpServletRequest request){
 		userManageImp.addUser(user);
+		usersMgService.addUsers(user);
 		request.setAttribute("message", "message");
 		this.userManageImp.getAllUser();
 		return "login";

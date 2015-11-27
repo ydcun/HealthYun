@@ -1,4 +1,4 @@
-package com.ydcun.dao;
+package com.ydcun.mysql.dao;
 
 import java.util.List;
 

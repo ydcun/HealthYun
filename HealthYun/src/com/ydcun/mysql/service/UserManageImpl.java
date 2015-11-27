@@ -1,4 +1,4 @@
-package com.ydcun.service;
+package com.ydcun.mysql.service;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.ydcun.dao.IUserDao;
 import com.ydcun.entity.Users;
+import com.ydcun.mysql.dao.IUserDao;
 @Service
 @Transactional
 public class UserManageImpl implements IUserManage {

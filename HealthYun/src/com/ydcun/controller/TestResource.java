@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.ydcun.entity.Users;
-import com.ydcun.service.UserManageImpl;
+import com.ydcun.mongodb.service.IUsersMgService;
+import com.ydcun.mysql.service.UserManageImpl;
 
 @Controller
 @RequestMapping("/test")
@@ -21,9 +22,11 @@ public class TestResource {
 	@Autowired
     private UserManageImpl  userManageImpl;
 	@Autowired
-    private InternalResourceViewResolver viewResolver;
+    private IUsersMgService usersMgService;
+	
 
 	@RequestMapping("/getText")
+	@ResponseBody
 	public String getText() {
 		// 实例化 
 		userManageImpl.getAllUser(); 
@@ -34,11 +37,7 @@ public class TestResource {
 	@ResponseBody
 	public List<Users> getJson() {
 		System.out.println("获取用户");
-		//return this.userManage.getAllUser();
-		Users u = new Users("ddd", 3, 3);
-		List<Users> list = new ArrayList<Users>();
-		list.add(u);
-		return list;
+		return this.usersMgService.findUserss();
 	}
 	@RequestMapping("/getXml")
 	public List<Users> getXml() {
