@@ -18,7 +18,16 @@ import com.ydcun.entity.Users;
 public class BaseMgDaoImpl<T> implements IBaseMgDao<T> {
     @Autowired
 	private MongoTemplate mongoTemplate;
-    /***
+    
+    public MongoTemplate getMongoTemplate() {
+		return mongoTemplate;
+	}
+
+	public void setMongoTemplate(MongoTemplate mongoTemplate) {
+		this.mongoTemplate = mongoTemplate;
+	}
+
+	/***
      * 查找所有对象；
      */
 	@Override

@@ -20,8 +20,6 @@ import com.ydcun.mysql.service.UserManageImpl;
 @RequestMapping("/test")
 public class TestResource {
 	@Autowired
-    private UserManageImpl  userManageImpl;
-	@Autowired
     private IUsersMgService usersMgService;
 	
 
@@ -29,7 +27,7 @@ public class TestResource {
 	@ResponseBody
 	public String getText() {
 		// 实例化 
-		userManageImpl.getAllUser(); 
+//		userManageImpl.getAllUser(); 
 		return "hello lucky";
 	}
 

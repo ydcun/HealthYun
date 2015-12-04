@@ -14,5 +14,6 @@
         <property name="name" />
         <property name="password" />
         <property name="age" />
+        <property name="test" />
     </class>
 </hibernate-mapping>

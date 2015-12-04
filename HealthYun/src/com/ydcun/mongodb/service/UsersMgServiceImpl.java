@@ -45,6 +45,7 @@ public class UsersMgServiceImpl implements IUsersMgService {
 	 */
 	@Override
 	public void addUsers(Users entity) {
+		
 		usersMgDaoImpl.insert(entity);
 	}
 

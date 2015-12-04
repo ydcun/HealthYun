@@ -8,6 +8,19 @@ public class Users{
 	private String name;
 	private String password;
 	private int age;
+	private Long test;
+
+	public Long getTest() {
+		return test;
+	}
+
+	public void setTest(Long test) {
+		this.test = test;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
 
 	public Users() {
 	}

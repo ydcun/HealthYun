@@ -23,13 +23,13 @@ import com.ydcun.mysql.service.IUserManage;
 @Controller
 @RequestMapping("/loginAction")
 public class UserController {
-	@Resource
 	private IUserManage userManageImp;
 	@Autowired
 	private IUsersMgService usersMgService;
 
 	@RequestMapping("/login")
 	public String addUser(Users user,HttpServletRequest request){
+		user.setTest(new Long(334));
 		userManageImp.addUser(user);
 		usersMgService.addUsers(user);
 		request.setAttribute("message", "message");
