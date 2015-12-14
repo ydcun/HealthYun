@@ -33,7 +33,13 @@ public interface IBaseMgDao<T> {
 	 * @author 
 	 */
 	public void removeOne(String id, Class<T> entity);
-
+	
+	/**
+	 * 根据制定的条件删除数据库中的对象
+	 * 
+	 */
+	public void removeEntity(Class<T> entity);
+ 
 	/**
 	 * 通过ID找到并修改
 	 * @author 

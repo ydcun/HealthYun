@@ -64,7 +64,7 @@ public class BaseMgDaoImpl<T> implements IBaseMgDao<T> {
 	 */
 	@Override
 	public void insert(Object entity) {
-		mongoTemplate.insert(entity);   
+		mongoTemplate.save(entity);   
 	}
 
 
@@ -99,6 +99,19 @@ public class BaseMgDaoImpl<T> implements IBaseMgDao<T> {
 		Query query=new Query();
 		query.addCriteria(criteria);
 		return  mongoTemplate.findOne(query, entity);
+	}
+
+	@Override
+	public void removeEntity(Class<T> entity) {
+		// TODO Auto-generated method stub
+		Criteria criteria = new Criteria();
+		if(criteria != null){   
+            Query query = new Query(criteria);   
+            if(query != null && mongoTemplate.findOne(query, entity) != null)   
+            	mongoTemplate.remove(mongoTemplate.findOne(query, entity));   
+        }   
+		
+		
 	}
 	
 

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.mongodb.core.query.Criteria;
 
 import com.ydcun.entity.Step;
+import com.ydcun.entity.YearStep;
 
 public interface IStepService {
 	/**
@@ -46,7 +47,7 @@ public interface IStepService {
 	 * @param f
 	 * @param g
 	 */
-	public void push(Step step);
+	public void updateOrPush(Step step);
 	
 	/**
 	 * 
@@ -54,4 +55,10 @@ public interface IStepService {
 	 * @param fromJson
 	 */
 	public void upadteHistory(Step fromJson);
+	
+	
+	public List<Step> findListByDua_id(Long dua_id,Long day0,Long day1);
+	
+	
+	public YearStep findYearStep(Long dua_id,Long year);
 }
